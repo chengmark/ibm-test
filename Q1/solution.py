@@ -1,6 +1,10 @@
+import sys
+
 # M = 0
 # L = 1
 # S = -1, XS = -2
+
+
 def toVal(size):
     val = 0
     mult = 1 if "M" in size or "L" in size else -1
@@ -21,6 +25,7 @@ def main(sizesInShop, requests):
     print(valSizes)
     for request in requests:
         availables = [x for x in valSizes if x >= toVal(request)]
+        print(toVal(request))
         print(availables)
         if(len(availables) == 0):
             allFullfilled = False
@@ -29,3 +34,24 @@ def main(sizesInShop, requests):
         print("Yes")
     else:
         print("No")
+
+
+N = 0
+M = 0
+sizesInShop = []
+requests = []
+i = 0
+for line in sys.stdin:
+    print(i)
+    if(i == 0):
+        N = int(line)
+    elif(i == 1):
+        sizesInShop = line.split(" ")
+    elif(i == 2):
+        M = int(line)
+    elif(i == 3):
+        requests = line.split(" ")
+        break
+    i += 1
+
+main(sizesInShop, requests)
