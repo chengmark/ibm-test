@@ -29,6 +29,3 @@ def main(sizesInShop, requests):
         print("Yes")
     else:
         print("No")
-
-
-main(["M", "XS", "XL"], [])
